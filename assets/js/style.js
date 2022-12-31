@@ -344,3 +344,46 @@ function cardFlyInEffect() {
     });
   }
   
+  //Allows shuffle of cards to be animated
+function animateShuffle(shuffleCount) {
+    const random1 = Math.floor(Math.random() * numCards) + 1;
+    const random2 = Math.floor(Math.random() * numCards) + 1;
+  
+    let card1 = document.getElementById(random1);
+    let card2 = document.getElementById(random2);
+  
+    if (shuffleCount % 4 == 0) {
+      card1.classList.toggle("shuffle-left");
+      card1.style.zIndex = 100;
+    }
+    if (shuffleCount % 10 == 0) {
+      card2.classList.toggle("shuffle-right");
+      card2.style.zIndex = 200;
+    }
+  }
+  
+  //shuffle cards for 2 seconds
+  function shuffleCards() {
+    let shuffleCount = 0;
+    const id = setInterval(shuffle, 2);
+  
+    //randomize position of cards when shuffled
+    function shuffle() {
+      randomizeCardPositions();
+      animateShuffle(shuffleCount);
+      if (shuffleCount == 500) {
+        clearInterval(id);
+        shufflingInProgress = false;
+        removeShuffleClasses();
+        dealCards();
+        updateStatusElement(
+          currentGameStatusElem,
+          "block",
+          primaryColor,
+          "Please click the card that you think is the Queen of Diamonds.."
+        );
+      } else {
+        shuffleCount++;
+      }
+    }
+  }
