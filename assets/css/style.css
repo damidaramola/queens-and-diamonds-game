@@ -119,3 +119,52 @@ main {
 .card-inner.flip-it {
     transform: rotateY(180deg);
 }
+/* Style layout of header element and classes */
+header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.header-title-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.header-round-info-container {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.current-status {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.header-status-info-container,
+.header-button-container,
+.heaader-score-container,
+.header-round-container,
+.header-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-score-container,
+.header-round-container,
+.header-img-container {
+    width: 150px;
+}
+
+.header-img {
+    height: 75px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transform: rotate(-3deg);
+
+}
