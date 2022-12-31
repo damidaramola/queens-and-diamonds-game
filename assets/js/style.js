@@ -220,3 +220,34 @@ function checkForIncompleteGame() {
         }
     }
 }
+
+//Called when user clicks start game button
+function startGame() {
+    initializeNewGame();
+    startRound();
+  }
+  
+  //initializes new game
+  function initializeNewGame() {
+    score = 0;
+    roundNum = 0;
+  
+    checkForIncompleteGame();
+  
+    shufflingInProgress = false;
+    updateStatusElement(scoreContainerElem, "flex");
+    updateStatusElement(roundContainerElem, "flex");
+  
+    updateStatusElement(
+      scoreElem,
+      "block",
+      primaryColor,
+      `Score <span class='badge'>${score}</span>`
+    );
+    updateStatusElement(
+      roundElem,
+      "block",
+      primaryColor,
+      `Round <span class='badge'>${roundNum}</span>`
+    );
+  }
