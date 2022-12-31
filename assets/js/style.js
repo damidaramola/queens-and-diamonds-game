@@ -543,3 +543,50 @@ function addCardToGridCell(card) {
   
     addChildElement(cardPosElem, card);
   }
+
+  function mapCardIdToGridCell(card) {
+    if (card.id == 1) {
+      return ".card-1";
+    } else if (card.id == 2) {
+      return ".card-2";
+    } else if (card.id == 3) {
+      return ".card-3";
+    } else if (card.id == 4) {
+      return ".card-4";
+    } 
+  }
+
+//local storage functions
+
+function getSerializedObjectAsJSON(obj) {
+    return JSON.stringify(obj);
+  }
+  
+  function getObjectFromJSON(json) {
+    return JSON.parse(json);
+  }
+  
+  function updateLocalStorageItem(key, value) {
+    localStorage.setItem(key, value);
+  }
+  
+  function removeLocalStorageItem(key) {
+    localStorage.removeItem(key);
+  }
+  
+  function getLocalStorageItemValue(key) {
+    return localStorage.getItem(key);
+  }
+  
+  function updateGameObject(score, round) {
+    gameObj.score = score;
+    gameObj.round = round;
+  }
+  
+  function saveGameObjectToLocalStorage(score, round) {
+    updateGameObject(score, round);
+    updateLocalStorageItem(
+      localStorageGameKey,
+      getSerializedObjectAsJSON(gameObj)
+    );
+  }
