@@ -442,3 +442,64 @@ function dealCards() {
       addCardToGridCell(card);
     });
   }
+  //This function is responsible for creating cards dynamically
+function createCard(cardItem) {
+    //Div Elements that make up a card
+    const cardElem = createElement("div");
+    const cardInnerElem = createElement("div");
+    const cardFrontElem = createElement("div");
+    const cardBackElem = createElement("div");
+  
+    //create front and back image elements for cards
+    const cardFrontImg = createElement("img");
+    const cardBackImg = createElement("img");
+  
+    //add class and id to card element
+    addClassToElement(cardElem, "card");
+    addClassToElement(cardElem, "fly-in");
+    addIdToElement(cardElem, cardItem.id);
+  
+    //add class to inner card element
+    addClassToElement(cardInnerElem, "card-inner");
+  
+    //add class to front card element
+    addClassToElement(cardFrontElem, "card-front");
+  
+    //add class to front card element
+    addClassToElement(cardBackElem, "card-back");
+  
+    //add src attribute and appropriate vlaues to img element of back of card
+    addSrcToImageElem(cardBackImg, cardBackImgPath);
+  
+    //add src attribute and appropriate vlaues to img element of front of card
+    addSrcToImageElem(cardFrontImg, cardItem.imagePath);
+  
+    //assign class to back Image element 
+    addClassToElement(cardBackImg, "card-img");
+  
+    //assign class to front Image element 
+    addClassToElement(cardFrontImg, "card-img");
+  
+    //add front element as child  element to front card element
+    addChildElement(cardFrontElem, cardFrontImg);
+  
+    //add back element as child  element to back card element
+    addChildElement(cardBackElem, cardBackImg);
+  
+    //add front element as child  element to front inner element
+    addChildElement(cardInnerElem, cardFrontElem);
+  
+    //add back element as child  element to back inner element
+    addChildElement(cardInnerElem, cardBackElem);
+  
+    //add inner card element as child element to card element
+    addChildElement(cardElem, cardInnerElem);
+  
+    //add card element as child element to appropriate grid cell
+    addCardToGridCell(cardElem);
+  
+    initializeCardPositions(cardElem);
+  
+    attachClickEventHandlerToCard(cardElem);
+  }
+  
