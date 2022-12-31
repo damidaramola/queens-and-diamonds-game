@@ -520,3 +520,8 @@ function createElement(elemType) {
 function addClassToElement(elem, className) {
     elem.classList.add(className);
   }
+
+  //Gives Element a unique id
+function addIdToElement(elem, id) {
+    elem.id = id;
+  }
