@@ -590,3 +590,22 @@ function getSerializedObjectAsJSON(obj) {
       getSerializedObjectAsJSON(gameObj)
     );
   }
+// validation for form
+  function validation() {
+    var main = document.getElementById("main");
+    var user = document.getElementById("user").value;
+    var body = document.getElementsByTagName("body");
+  
+    console.log(body, "<===body");
+    if (user.trim() == "") {
+      alert("no blank spaces allowed. Please insert usersname");
+    } else if (user.length < 2) {
+      alert("please enter 2 or more letters");
+    } else {
+      main.style.display = "flex";
+      form.style.display = "none";
+      body[0].style.background = "white";
+      headerTitleContainer.innerHTML += `<p id="welcome">Welcome <span id="username"> ${user}</span>!</p>`;
+    }
+  }
+  
