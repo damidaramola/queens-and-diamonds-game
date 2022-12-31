@@ -190,3 +190,17 @@ function evaluateCardChoice(card) {
         outputChoiceFeedBack(false);
     }
 }
+
+//cards can only be chosen after shuffling takes place
+function canChooseCard() {
+    return gameInProgress == true && !shufflingInProgress && !cardsRevealed;
+  }
+  
+  function loadGame() {
+    createCards();
+    cards = document.querySelectorAll(".card");
+    cardFlyInEffect();
+    playGameButtonElem.addEventListener("click", () => startGame());
+    updateStatusElement(scoreContainerElem, "none");
+    updateStatusElement(roundContainerElem, "none");
+  }
