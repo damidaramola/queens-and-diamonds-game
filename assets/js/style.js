@@ -46,3 +46,35 @@ const scoreElem = document.querySelector(".score");
 const roundContainerElem = document.querySelector(".header-round-container");
 const roundElem = document.querySelector(".round");
 
+const winColor = "green";
+const loseColor = "red";
+const primaryColor = "black";
+//set score and number of rounds 
+let roundNum = 0;
+let maxRounds = 3;
+let score = 0;
+
+let gameObj = {};
+
+const localStorageGameKey = "HTA";
+
+//Method called when game is first launched
+loadGame();
+//when game is over save to high scores
+function gameOver() {
+  updateStatusElement(scoreContainerElem, "none");
+  updateStatusElement(roundContainerElem, "none");
+  const gameOverMessage = `
+    Game Over! Final Score - <span class = 'badge'>${score}</span> Click 'Play Game' button to start again
+      <button id="save" onClick="save(score)">Save to high scores</button>
+    `;
+  updateStatusElement(
+    currentGameStatusElem,
+    "block",
+    primaryColor,
+    gameOverMessage
+  );
+
+  gameInProgress = false;
+  playGameButtonElem.disabled = false;
+}
