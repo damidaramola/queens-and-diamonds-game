@@ -180,3 +180,11 @@ header {
 .score {
     padding: 18px;
 }
+/* Styling for shuffling cards before a card is picked */
+.card.shuffle-left {
+    transform: translateX(300px) translateY(40px);
+}
+
+.card.shuffle-right {
+    transform: translateX(-350px) translateY(-40px);
+}
