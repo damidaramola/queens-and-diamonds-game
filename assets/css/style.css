@@ -262,3 +262,16 @@ header {
     margin-left: 8px;
     font-size: 25px;
 }
+
+/*Add media queries for h1 and welcome username*/
+@media (max-width: 600px){
+    h1, .container{
+       font-size: 20px;
+    }
+   
+   }
+   
+   @media(max-width:920px) {
+       #welcome,#username
+         {display:none}  
+     }
