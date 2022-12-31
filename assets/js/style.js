@@ -511,3 +511,8 @@ function createCard(cardItem) {
     cardPositions.push(card.id);
   }
   
+  //This function creates html elements
+function createElement(elemType) {
+    return document.createElement(elemType);
+  }
+  
