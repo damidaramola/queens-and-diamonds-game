@@ -282,3 +282,20 @@ function initializeNewRound() {
         `Round <span class='badge'>${roundNum}</span>`
     );
 }
+//stack cards ontop of one card which is visible
+function collectCards() {
+    transformGridArea(collapsedGridAreaTemplate);
+    addCardsToGridAreaCell(cardCollectionCellClass);
+  }
+  
+  function transformGridArea(areas) {
+    cardContainerElem.style.gridTemplateAreas = areas;
+  }
+  
+  function addCardsToGridAreaCell(cellPositionClassName) {
+    const cellPositionElem = document.querySelector(cellPositionClassName);
+  
+    cards.forEach((card, index) => {
+      addChildElement(cellPositionElem, card);
+    });
+  }
