@@ -26,3 +26,7 @@ let cards = [];
 //reference to start game button in global const
 const playGameButtonElem = document.getElementById("playGame");
 const cardContainerElem = document.querySelector(".card-placement");
+
+//causes grid of cards to collapse showing only card 1
+const collapsedGridAreaTemplate = '"a a" "a a"';
+const cardCollectionCellClass = ".card-1";
