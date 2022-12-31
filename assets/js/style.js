@@ -30,3 +30,18 @@ const cardContainerElem = document.querySelector(".card-placement");
 //causes grid of cards to collapse showing only card 1
 const collapsedGridAreaTemplate = '"a a" "a a"';
 const cardCollectionCellClass = ".card-1";
+
+const numCards = cardObjectDefined.length;
+
+let cardPositions = [];
+
+let gameInProgress = false;
+let shufflingInProgress = false;
+let cardsRevealed = false;
+
+const headerTitleContainer = document.querySelector(".header-title-container");
+const currentGameStatusElem = document.querySelector(".current-status");
+const scoreContainerElem = document.querySelector(".header-score-container");
+const scoreElem = document.querySelector(".score");
+const roundContainerElem = document.querySelector(".header-round-container");
+const roundElem = document.querySelector(".round");
