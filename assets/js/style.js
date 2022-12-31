@@ -525,3 +525,8 @@ function addClassToElement(elem, className) {
 function addIdToElement(elem, id) {
     elem.id = id;
   }
+
+  //Assigns a path for the relevant image to src attribute of img element
+function addSrcToImageElem(imgElem, src) {
+    imgElem.src = src;
+  }
