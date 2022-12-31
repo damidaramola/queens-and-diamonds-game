@@ -535,3 +535,11 @@ function addSrcToImageElem(imgElem, src) {
 function addChildElement(parentElem, childElem) {
     parentElem.appendChild(childElem);
 }
+
+//adds the card to the appropriate Grid Cell
+function addCardToGridCell(card) {
+    const cardPositionClassName = mapCardIdToGridCell(card);
+    const cardPosElem = document.querySelector(cardPositionClassName);
+  
+    addChildElement(cardPosElem, card);
+  }
