@@ -318,3 +318,29 @@ function flipCard(card, flipToBack) {
     });
   }
   
+  //Allow cards to fly in once page loads
+function cardFlyInEffect() {
+    const id = setInterval(flyIn, 3);
+    let cardCount = 0;
+    let count = 0;
+  
+    function flyIn() {
+      count++;
+      if (cardCount == numCards) {
+        clearInterval(id);
+      }
+      if (count == 1 || count == 250 || count == 500 || count == 750) {
+        cardCount++;
+        let card = document.getElementById(cardCount);
+        card.classList.remove("fly-in");
+      }
+    }
+  }
+  
+  function removeShuffleClasses() {
+    cards.forEach((card) => {
+      card.classList.remove("shuffle-left");
+      card.classList.remove("shuffle-right");
+    });
+  }
+  
