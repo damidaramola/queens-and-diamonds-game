@@ -194,13 +194,29 @@ function evaluateCardChoice(card) {
 //cards can only be chosen after shuffling takes place
 function canChooseCard() {
     return gameInProgress == true && !shufflingInProgress && !cardsRevealed;
-  }
-  
-  function loadGame() {
+}
+
+function loadGame() {
     createCards();
     cards = document.querySelectorAll(".card");
     cardFlyInEffect();
     playGameButtonElem.addEventListener("click", () => startGame());
     updateStatusElement(scoreContainerElem, "none");
     updateStatusElement(roundContainerElem, "none");
-  }
+}
+
+//If game is left unfinished, notification will allow player to continue
+function checkForIncompleteGame() {
+    const serializedGameObj = getLocalStorageItemValue(localStorageGameKey);
+    if (serializedGameObj) {
+        gameObj = getObjectFromJSON(serializedGameObj);
+        if (gameObj.round >= maxRounds) {
+            removeLocalStorageItem(localStorageGameKey);
+        } else {
+            if (confirm("Would you like to continue with your last game?")) {
+                score = gameObj.score;
+                roundNum = gameObj.round;
+            }
+        }
+    }
+}
