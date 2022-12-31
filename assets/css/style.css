@@ -168,3 +168,15 @@ header {
     transform: rotate(-3deg);
 
 }
+
+/* styling for score count badges */
+.badge {
+    background-color: var(--badge-bg-color);
+    color: var(--secondary-color);
+    padding: 2px 10px 3px;
+    border-radius: 15px;
+}
+
+.score {
+    padding: 18px;
+}
