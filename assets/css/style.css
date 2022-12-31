@@ -243,3 +243,22 @@ header {
 
 }
 
+/* Style welcome username!*/
+#welcome  {
+    position: absolute;
+    right: 0;
+    margin-right: 3rem;
+    align-self: center;
+    display: flex;
+    font-weight: bolder;
+    color:rgb(12, 12, 12) ;
+    font-size: 25px;
+    background-color: rgb(245, 114, 114);
+    border-radius: 30px;
+    padding: 10px;
+}
+
+#username{
+    margin-left: 8px;
+    font-size: 25px;
+}
