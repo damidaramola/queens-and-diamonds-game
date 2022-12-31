@@ -286,247 +286,252 @@ function initializeNewRound() {
 function collectCards() {
     transformGridArea(collapsedGridAreaTemplate);
     addCardsToGridAreaCell(cardCollectionCellClass);
-  }
-  
-  function transformGridArea(areas) {
-    cardContainerElem.style.gridTemplateAreas = areas;
-  }
-  
-  function addCardsToGridAreaCell(cellPositionClassName) {
-    const cellPositionElem = document.querySelector(cellPositionClassName);
-  
-    cards.forEach((card, index) => {
-      addChildElement(cellPositionElem, card);
-    });
-  }
+}
 
-  // flips cards once card is chosen
+function transformGridArea(areas) {
+    cardContainerElem.style.gridTemplateAreas = areas;
+}
+
+function addCardsToGridAreaCell(cellPositionClassName) {
+    const cellPositionElem = document.querySelector(cellPositionClassName);
+
+    cards.forEach((card, index) => {
+        addChildElement(cellPositionElem, card);
+    });
+}
+
+// flips cards once card is chosen
 function flipCard(card, flipToBack) {
     const innerCardElem = card.firstChild;
     if (flipToBack && !innerCardElem.classList.contains("flip-it")) {
-      innerCardElem.classList.add("flip-it");
+        innerCardElem.classList.add("flip-it");
     } else if (innerCardElem.classList.contains("flip-it")) {
-      innerCardElem.classList.remove("flip-it");
+        innerCardElem.classList.remove("flip-it");
     }
-  }
-  
-  function flipCards(flipToBack) {
+}
+
+function flipCards(flipToBack) {
     cards.forEach((card, index) => {
-      setTimeout(() => {
-        flipCard(card, flipToBack);
-      }, index * 100);
+        setTimeout(() => {
+            flipCard(card, flipToBack);
+        }, index * 100);
     });
-  }
-  
-  //Allow cards to fly in once page loads
+}
+
+//Allow cards to fly in once page loads
 function cardFlyInEffect() {
     const id = setInterval(flyIn, 3);
     let cardCount = 0;
     let count = 0;
-  
+
     function flyIn() {
-      count++;
-      if (cardCount == numCards) {
-        clearInterval(id);
-      }
-      if (count == 1 || count == 250 || count == 500 || count == 750) {
-        cardCount++;
-        let card = document.getElementById(cardCount);
-        card.classList.remove("fly-in");
-      }
+        count++;
+        if (cardCount == numCards) {
+            clearInterval(id);
+        }
+        if (count == 1 || count == 250 || count == 500 || count == 750) {
+            cardCount++;
+            let card = document.getElementById(cardCount);
+            card.classList.remove("fly-in");
+        }
     }
-  }
-  
-  function removeShuffleClasses() {
+}
+
+function removeShuffleClasses() {
     cards.forEach((card) => {
-      card.classList.remove("shuffle-left");
-      card.classList.remove("shuffle-right");
+        card.classList.remove("shuffle-left");
+        card.classList.remove("shuffle-right");
     });
-  }
-  
-  //Allows shuffle of cards to be animated
+}
+
+//Allows shuffle of cards to be animated
 function animateShuffle(shuffleCount) {
     const random1 = Math.floor(Math.random() * numCards) + 1;
     const random2 = Math.floor(Math.random() * numCards) + 1;
-  
+
     let card1 = document.getElementById(random1);
     let card2 = document.getElementById(random2);
-  
+
     if (shuffleCount % 4 == 0) {
-      card1.classList.toggle("shuffle-left");
-      card1.style.zIndex = 100;
+        card1.classList.toggle("shuffle-left");
+        card1.style.zIndex = 100;
     }
     if (shuffleCount % 10 == 0) {
-      card2.classList.toggle("shuffle-right");
-      card2.style.zIndex = 200;
+        card2.classList.toggle("shuffle-right");
+        card2.style.zIndex = 200;
     }
-  }
-  
-  //shuffle cards for 2 seconds
-  function shuffleCards() {
+}
+
+//shuffle cards for 2 seconds
+function shuffleCards() {
     let shuffleCount = 0;
     const id = setInterval(shuffle, 2);
-  
+
     //randomize position of cards when shuffled
     function shuffle() {
-      randomizeCardPositions();
-      animateShuffle(shuffleCount);
-      if (shuffleCount == 500) {
-        clearInterval(id);
-        shufflingInProgress = false;
-        removeShuffleClasses();
-        dealCards();
-        updateStatusElement(
-          currentGameStatusElem,
-          "block",
-          primaryColor,
-          "Please click the card that you think is the Queen of Diamonds.."
-        );
-      } else {
-        shuffleCount++;
-      }
+        randomizeCardPositions();
+        animateShuffle(shuffleCount);
+        if (shuffleCount == 500) {
+            clearInterval(id);
+            shufflingInProgress = false;
+            removeShuffleClasses();
+            dealCards();
+            updateStatusElement(
+                currentGameStatusElem,
+                "block",
+                primaryColor,
+                "Please click the card that you think is the Queen of Diamonds.."
+            );
+        } else {
+            shuffleCount++;
+        }
     }
-  }
+}
 
-  function createCards() {
+function createCards() {
     cardObjectDefined.forEach((cardItem) => {
-      createCard(cardItem);
+        createCard(cardItem);
     });
-  }
-  
-  function randomizeCardPositions() {
+}
+
+function randomizeCardPositions() {
     const random1 = Math.floor(Math.random() * numCards) + 1;
     const random2 = Math.floor(Math.random() * numCards) + 1;
-  
+
     const temp = cardPositions[random1 - 1];
     cardPositions[random1 - 1] = cardPositions[random2 - 1];
     cardPositions[random2 - 1] = temp;
-  }
+}
 
 //Restores Grid to 4 grid cells after cards are shuffled
 function dealCards() {
     addCardsToAppropriateCell();
     const areasTemplate = returnGridAreasMappedToCardPos();
     transformGridArea(areasTemplate);
-  }
-  
-  //Generates new positions for cards after shuffling
-  function returnGridAreasMappedToCardPos() {
+}
+
+//Generates new positions for cards after shuffling
+function returnGridAreasMappedToCardPos() {
     let firstPart = "";
     let secondPart = "";
     let areas = "";
-  
+
     cards.forEach((card, index) => {
-      if (cardPositions[index] == 1) {
-        areas = areas + "a ";
-      } else if (cardPositions[index] == 2) {
-        areas = areas + "b ";
-      } else if (cardPositions[index] == 3) {
-        areas = areas + "c ";
-      } else if (cardPositions[index] == 4) {
-        areas = areas + "d ";
-      } 
-      if (index == 1) {
-        firstPart = areas.substring(0, areas.length - 1);
-        areas = "";
-      } else if (index == 3) {
-        secondPart = areas.substring(0, areas.length - 1);
-      }
+        if (cardPositions[index] == 1) {
+            areas = areas + "a ";
+        } else if (cardPositions[index] == 2) {
+            areas = areas + "b ";
+        } else if (cardPositions[index] == 3) {
+            areas = areas + "c ";
+        } else if (cardPositions[index] == 4) {
+            areas = areas + "d ";
+        }
+        if (index == 1) {
+            firstPart = areas.substring(0, areas.length - 1);
+            areas = "";
+        } else if (index == 3) {
+            secondPart = areas.substring(0, areas.length - 1);
+        }
     });
-  
+
     return `"${firstPart}" "${secondPart}"`;
-  }
-  
-  function addCardsToAppropriateCell() {
+}
+
+function addCardsToAppropriateCell() {
     cards.forEach((card) => {
-      addCardToGridCell(card);
+        addCardToGridCell(card);
     });
-  }
-  //This function is responsible for creating cards dynamically
+}
+//This function is responsible for creating cards dynamically
 function createCard(cardItem) {
     //Div Elements that make up a card
     const cardElem = createElement("div");
     const cardInnerElem = createElement("div");
     const cardFrontElem = createElement("div");
     const cardBackElem = createElement("div");
-  
+
     //create front and back image elements for cards
     const cardFrontImg = createElement("img");
     const cardBackImg = createElement("img");
-  
+
     //add class and id to card element
     addClassToElement(cardElem, "card");
     addClassToElement(cardElem, "fly-in");
     addIdToElement(cardElem, cardItem.id);
-  
+
     //add class to inner card element
     addClassToElement(cardInnerElem, "card-inner");
-  
+
     //add class to front card element
     addClassToElement(cardFrontElem, "card-front");
-  
+
     //add class to front card element
     addClassToElement(cardBackElem, "card-back");
-  
+
     //add src attribute and appropriate vlaues to img element of back of card
     addSrcToImageElem(cardBackImg, cardBackImgPath);
-  
+
     //add src attribute and appropriate vlaues to img element of front of card
     addSrcToImageElem(cardFrontImg, cardItem.imagePath);
-  
+
     //assign class to back Image element 
     addClassToElement(cardBackImg, "card-img");
-  
+
     //assign class to front Image element 
     addClassToElement(cardFrontImg, "card-img");
-  
+
     //add front element as child  element to front card element
     addChildElement(cardFrontElem, cardFrontImg);
-  
+
     //add back element as child  element to back card element
     addChildElement(cardBackElem, cardBackImg);
-  
+
     //add front element as child  element to front inner element
     addChildElement(cardInnerElem, cardFrontElem);
-  
+
     //add back element as child  element to back inner element
     addChildElement(cardInnerElem, cardBackElem);
-  
+
     //add inner card element as child element to card element
     addChildElement(cardElem, cardInnerElem);
-  
+
     //add card element as child element to appropriate grid cell
     addCardToGridCell(cardElem);
-  
+
     initializeCardPositions(cardElem);
-  
+
     attachClickEventHandlerToCard(cardElem);
-  }
-  
-  function attachClickEventHandlerToCard(card) {
+}
+
+function attachClickEventHandlerToCard(card) {
     card.addEventListener("click", () => chooseCard(card));
-  }
-  
-  function initializeCardPositions(card) {
+}
+
+function initializeCardPositions(card) {
     cardPositions.push(card.id);
-  }
-  
-  //This function creates html elements
+}
+
+//This function creates html elements
 function createElement(elemType) {
     return document.createElement(elemType);
-  }
-  
-  //This function adds a class to the html element
+}
+
+//This function adds a class to the html element
 function addClassToElement(elem, className) {
     elem.classList.add(className);
-  }
+}
 
-  //Gives Element a unique id
+//Gives Element a unique id
 function addIdToElement(elem, id) {
     elem.id = id;
-  }
+}
 
-  //Assigns a path for the relevant image to src attribute of img element
+//Assigns a path for the relevant image to src attribute of img element
 function addSrcToImageElem(imgElem, src) {
     imgElem.src = src;
-  }
+}
+
+//assigns child elements to their parent elements
+function addChildElement(parentElem, childElem) {
+    parentElem.appendChild(childElem);
+}
