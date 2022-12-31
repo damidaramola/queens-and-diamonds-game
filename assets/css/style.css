@@ -18,3 +18,16 @@
     --primary-font: 'Fredoka', sans-serif;
 
 }
+
+/* set body height and font-family */
+body {
+    height: 100vh;
+    font-family: var(--primary-font);
+}
+
+main {
+    height: 55%;
+    display: none;
+    justify-content: center;
+
+}
