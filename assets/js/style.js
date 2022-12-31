@@ -78,3 +78,18 @@ function gameOver() {
   gameInProgress = false;
   playGameButtonElem.disabled = false;
 }
+// save scores in local storage
+function save(score) {
+    console.log("score =====>", score);
+    const username = document.getElementById("username");
+    const scores = JSON.parse(localStorage.getItem("score_data")) || [];
+    const scoreData = {
+      id: Math.random(),
+      username: username.innerText,
+      score,
+    };
+    scores.push(scoreData);
+    console.log(scores, "<===scores after update");
+    localStorage.setItem("score_data", JSON.stringify(scores));
+    window.location = 'high-score.html';
+  }
