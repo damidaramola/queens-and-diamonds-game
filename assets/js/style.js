@@ -62,21 +62,21 @@ const localStorageGameKey = "HTA";
 loadGame();
 //when game is over save to high scores
 function gameOver() {
-  updateStatusElement(scoreContainerElem, "none");
-  updateStatusElement(roundContainerElem, "none");
-  const gameOverMessage = `
+    updateStatusElement(scoreContainerElem, "none");
+    updateStatusElement(roundContainerElem, "none");
+    const gameOverMessage = `
     Game Over! Final Score - <span class = 'badge'>${score}</span> Click 'Play Game' button to start again
       <button id="save" onClick="save(score)">Save to high scores</button>
     `;
-  updateStatusElement(
-    currentGameStatusElem,
-    "block",
-    primaryColor,
-    gameOverMessage
-  );
+    updateStatusElement(
+        currentGameStatusElem,
+        "block",
+        primaryColor,
+        gameOverMessage
+    );
 
-  gameInProgress = false;
-  playGameButtonElem.disabled = false;
+    gameInProgress = false;
+    playGameButtonElem.disabled = false;
 }
 // save scores in local storage
 function save(score) {
@@ -84,46 +84,109 @@ function save(score) {
     const username = document.getElementById("username");
     const scores = JSON.parse(localStorage.getItem("score_data")) || [];
     const scoreData = {
-      id: Math.random(),
-      username: username.innerText,
-      score,
+        id: Math.random(),
+        username: username.innerText,
+        score,
     };
     scores.push(scoreData);
     console.log(scores, "<===scores after update");
     localStorage.setItem("score_data", JSON.stringify(scores));
     window.location = 'high-score.html';
-  }
+}
 
-  //start and end each round 
-  function endRound() {
+//start and end each round 
+function endRound() {
     setTimeout(() => {
-      if (roundNum == maxRounds) {
-        gameOver();
-        return;
-      } else {
-        startRound();
-      }
+        if (roundNum == maxRounds) {
+            gameOver();
+            return;
+        } else {
+            startRound();
+        }
     }, 2000);
-  }
-  
-  function chooseCard(card) {
+}
+
+function chooseCard(card) {
     if (canChooseCard()) {
-      evaluateCardChoice(card);
-  
-      saveGameObjectToLocalStorage(score, roundNum);
-      flipCard(card, false);
-  
-      setTimeout(() => {
-        flipCards(false);
-        updateStatusElement(
-          currentGameStatusElem,
-          "block",
-          primaryColor,
-          "Card positions revealed"
-        );
-  
-        endRound();
-      }, 2000);
-      cardsRevealed = true;
+        evaluateCardChoice(card);
+
+        saveGameObjectToLocalStorage(score, roundNum);
+        flipCard(card, false);
+
+        setTimeout(() => {
+            flipCards(false);
+            updateStatusElement(
+                currentGameStatusElem,
+                "block",
+                primaryColor,
+                "Card positions revealed"
+            );
+
+            endRound();
+        }, 2000);
+        cardsRevealed = true;
     }
-  }
+}
+
+//Calulates score after each round
+function calculateScoreToAdd(roundNum) {
+    if (roundNum == 1) {
+        return 100;
+    } else if (roundNum == 2) {
+        return 80;
+    } else if (roundNum == 3) {
+        return 40;
+    } else {
+        return 20;
+    }
+}
+
+function calculateScore() {
+    const scoreToAdd = calculateScoreToAdd(roundNum);
+    score = score + scoreToAdd;
+}
+
+function updateScore() {
+    calculateScore();
+    updateStatusElement(
+        scoreElem,
+        "block",
+        primaryColor,
+        `Score <span class='badge'>${score}</span>`
+    );
+}
+
+function updateStatusElement(elem, display, color, innerHTML) {
+    elem.style.display = display;
+    if (arguments.length > 2) {
+        elem.style.color = color;
+        elem.innerHTML = innerHTML;
+    }
+}
+
+function outputChoiceFeedBack(hit) {
+    if (hit) {
+        updateStatusElement(
+            currentGameStatusElem,
+            "block",
+            winColor,
+            "Correct! Nice Guess!"
+        );
+    } else {
+        updateStatusElement(
+            currentGameStatusElem,
+            "block",
+            loseColor,
+            "Wrong..Hard luck!"
+        );
+    }
+}
+
+function evaluateCardChoice(card) {
+    if (card.id == queenId) {
+        updateScore();
+        outputChoiceFeedBack(true);
+    } else {
+        outputChoiceFeedBack(false);
+    }
+}
