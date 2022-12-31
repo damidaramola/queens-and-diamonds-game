@@ -503,3 +503,11 @@ function createCard(cardItem) {
     attachClickEventHandlerToCard(cardElem);
   }
   
+  function attachClickEventHandlerToCard(card) {
+    card.addEventListener("click", () => chooseCard(card));
+  }
+  
+  function initializeCardPositions(card) {
+    cardPositions.push(card.id);
+  }
+  
