@@ -516,3 +516,7 @@ function createElement(elemType) {
     return document.createElement(elemType);
   }
   
+  //This function adds a class to the html element
+function addClassToElement(elem, className) {
+    elem.classList.add(className);
+  }
