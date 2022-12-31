@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+/*Style the body of the front page */
+body{
+    margin:0;
+    padding:20px;
+    font-family:'Fredoka', sans-serif;
+    background-image:url(assets/images/Queen-ofDiamonds-small.PNG);
+    background-size: 150px;
+    background-repeat:repeat;
+}
