@@ -93,3 +93,37 @@ function save(score) {
     localStorage.setItem("score_data", JSON.stringify(scores));
     window.location = 'high-score.html';
   }
+
+  //start and end each round 
+  function endRound() {
+    setTimeout(() => {
+      if (roundNum == maxRounds) {
+        gameOver();
+        return;
+      } else {
+        startRound();
+      }
+    }, 2000);
+  }
+  
+  function chooseCard(card) {
+    if (canChooseCard()) {
+      evaluateCardChoice(card);
+  
+      saveGameObjectToLocalStorage(score, roundNum);
+      flipCard(card, false);
+  
+      setTimeout(() => {
+        flipCards(false);
+        updateStatusElement(
+          currentGameStatusElem,
+          "block",
+          primaryColor,
+          "Card positions revealed"
+        );
+  
+        endRound();
+      }, 2000);
+      cardsRevealed = true;
+    }
+  }
