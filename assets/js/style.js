@@ -38,10 +38,11 @@ let cardPositions = [];
 let gameInProgress = false;
 let shufflingInProgress = false;
 let cardsRevealed = false;
-
+//add global const to store each element 
 const headerTitleContainer = document.querySelector(".header-title-container");
 const currentGameStatusElem = document.querySelector(".current-status");
 const scoreContainerElem = document.querySelector(".header-score-container");
 const scoreElem = document.querySelector(".score");
 const roundContainerElem = document.querySelector(".header-round-container");
 const roundElem = document.querySelector(".round");
+
