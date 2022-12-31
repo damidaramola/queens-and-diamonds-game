@@ -23,3 +23,6 @@ var form = document.getElementById("form");
 const cardBackImgPath = "assets/images/card-back-Blue.png";
 
 let cards = [];
+//reference to start game button in global const
+const playGameButtonElem = document.getElementById("playGame");
+const cardContainerElem = document.querySelector(".card-placement");
