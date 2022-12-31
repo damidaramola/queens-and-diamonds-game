@@ -609,3 +609,8 @@ function getSerializedObjectAsJSON(obj) {
     }
   }
   
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    validation();
+  });
+  
