@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+
+/* Store Dimentions of the cards */
+:root {
+    --card-width-1g: 157px;
+    --card-height-1g: 220px;
+
+    --card-width-sm: 120px;
+    --card-height-sm: 168px;
+
+    --num-cards: 4;
+    --card-horizontal-space-1g: 100px;
+    --card-horizontal-space-sm: 50px;
+
+    --badge-bg-color: rgb(245, 114, 114);
+    --primary-color: black;
+    --secondary-color: #ffffff;
+    --primary-font: 'Fredoka', sans-serif;
+
+}
