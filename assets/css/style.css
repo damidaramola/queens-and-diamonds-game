@@ -188,3 +188,27 @@ header {
 .card.shuffle-right {
     transform: translateX(-350px) translateY(-40px);
 }
+/* Cards  fly in from left side of the screen when page loads*/
+.card.fly-in {
+    transform: translateY(-1000px) translateX(-600px) rotate(45deg);
+}
+/* Style media queries for responsive design */
+@media screen and (max-width:600px) {
+    .card {
+        width: var(--card-width-sm);
+        height: var(--card-height-sm);
+    }
+
+    .card-container {
+        width: calc(var(--card-width-sm) *(var(--num-cards)/2) + var(--card-horizontal-space-sm));
+    }
+
+    main {
+        height: 50%;
+
+    }
+
+    .current-status {
+        font-size: 1.2rem;
+    }
+}
