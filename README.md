@@ -6,9 +6,9 @@ Queens and Diamonds is a simple card guessing game in which the player must gues
 ![image](https://user-images.githubusercontent.com/110638513/201011587-9bb162bb-d95b-43ac-8e2c-fed0e944721c.png)
 ## Features
 * An initial form for the user to put in their username after which they can start the game.
-* Validation alert if user inputs less than 2 letters for a username.
-* Validation alert if user inputs a blank space for username.
-* A welcome message with players username.
+* Validation alert if the user inputs less than 2 letters for a username.
+* Validation alert if the user inputs a blank space for username.
+* A welcome message with the player's username.
 * An image of the Queen of diamonds card in the header section. The title is also located above the image.
 * 4 cards that 'fly into' the page and into their respective positions when the page is loaded.
 * Below the header section is an animated button that says 'Play Game'. The button zooms in once hovered over and starts the game when clicked.
@@ -16,19 +16,19 @@ Queens and Diamonds is a simple card guessing game in which the player must gues
 * The cards display an animation of shuffling the cards before the right card should be chosen.
 * The cards flip once clicked to reveal the chosen/ unchosen cards.
 * A reminder pop-up allows players to continue from the last game.
-* A high score page that stores previous scores
+* A high-score page that stores previous scores
 
 ## Form and Validation
 * This is the initial form displayed before the main game is loaded.
 ![Dami-form-log-in](https://user-images.githubusercontent.com/110638513/210159655-70637068-57cb-4998-a7e3-e4af8751c765.PNG)
 
-* If less than 2 characteres are inserted, an alert will pop up signalling that 2 or more characters must be used.
+* If less than 2 characters are inserted, an alert will pop up signalling that 2 or more characters must be used.
 ![2-character-validation](https://user-images.githubusercontent.com/110638513/210160275-5bd7be55-da70-4176-a6d4-7fb25aa7d6d5.PNG)
 
-* An alert will pop up if a blank space in inserted into the input field also.
+* An alert will pop up if a blank space is inserted into the input field also.
 ![blank-space-validation](https://user-images.githubusercontent.com/110638513/210160280-de1ef441-ee45-494c-adb0-6fc2ae8e1a70.PNG)
 
-* Once the username is submitted, it is then added to a welcome message on the right hand side of the screen.
+* Once the username is submitted, it is then added to a welcome message on the right-hand side of the screen.
 
 ![welcome-Dami-game](https://user-images.githubusercontent.com/110638513/210159636-94ee4f78-ce85-4b3a-bd88-5b80885812eb.PNG)
 
@@ -67,7 +67,7 @@ As the positions have now changed. The player must guess where they think the Qu
  
 ## Right Card, Wrong Card
  
-* Once the cards have finished shuffling and fall back into position, a card must be chosen. Once clicked, the card will rotate to reveal the right/wrong card. A few seconds later, the rest of the cards will flip over to reveal their true position.
+* Once the cards have finished shuffling and fall back into position, a card must be chosen. Once clicked, the card will rotate to reveal the right/wrong card. A few seconds later, the rest of the cards will flip over to reveal the true position.
 If the Queen of diamonds is picked, a green message will show up saying 'Correct! Nice Guess'. If the wrong card is selected, it will display 'Wrong. Hard luck!'.
  
  
@@ -88,12 +88,12 @@ If the Queen of diamonds is picked, a green message will show up saying 'Correct
  
 ![Game-over-final-score](https://user-images.githubusercontent.com/110638513/201005231-367ce592-9158-45bc-8c06-e11d1c18d5e1.PNG)
 
-## High score board
+## High scoreboard
 * Once the player has finished the 3 rounds of the game, they have a choice to save their name and score on the 'high scores' page.
 
 ![save-to-high-scores](https://user-images.githubusercontent.com/110638513/210160517-3706c493-c1ef-473d-9310-4a4dd21a435f.PNG)
 
-* Thier name and score will now be visible on the page. They can also click the 'GO TO HOME' button to go back to the initial form.
+* Their name and score will now be visible on the page. They can also click the 'GO TO HOME' button to go back to the initial form.
 ![high-score-page](https://user-images.githubusercontent.com/110638513/210160516-99fc84a3-63f5-419e-a29b-3be7c83254ed.PNG)
 
 ## Testing
@@ -106,7 +106,8 @@ If the Queen of diamonds is picked, a green message will show up saying 'Correct
 *  My CSS code passed the  W3C validator test with no issues
 ![css-validator](https://user-images.githubusercontent.com/110638513/201006227-2fb6eccd-1e7d-411c-aad9-aa8be8b49ae0.PNG)
  
-* I used the beautify tools javascript validator to check my javascript code and I only had one small error. Other messages were syntax warnings.
+* I used the beautify tools javascript validator to check my javascript code and I only had two small errors. Other messages were syntax warnings.
+
 ![error-warning](https://user-images.githubusercontent.com/110638513/201007074-d598ab9d-0b6a-4d4f-a6f2-4e5f82b80fee.PNG)
  
 ### Lighthouse Testing
@@ -128,7 +129,7 @@ Steps to deploy:
  
  
 * The format used to make this README file was taken from the CI sample project README.md video [README.MD example](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+CSSE_PAGPPF+2021_Q2/courseware/66cf361c769a41d496f5001fae6f9be7/3b5cd5dc8313462aa5975a3c9b9a1a3c/)
-* The tutorial used to make this website was taken from [Tutorial 1](https://www.youtube.com/watch?v=uyVTJelJq0A&t=3216s) ,
+* The tutorial used to make this website was taken from [Tutorial 1](https://www.youtube.com/watch?v=uyVTJelJq0A&t=3216s),
                                                                 [Tutorial 2](https://www.youtube.com/watch?v=Pcf4F5xa1xs ) ,
                                                [Tutorial 3](https://www.youtube.com/watch?v=PkxA6m-NNCY ) ,
                                                [Tutorial 4](https://www.youtube.com/watch?v=qGM5pUUp56Q&t=316s)
