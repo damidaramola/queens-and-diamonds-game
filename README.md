@@ -114,6 +114,10 @@ If the Queen of diamonds is picked, a green message will show up saying 'Correct
  
 ![lighthouse testing](https://user-images.githubusercontent.com/110638513/210160775-6f0dc118-f3a9-493c-a7b6-0e4b1b3c55da.PNG)
 * My accessibility is really good in terms of accessibility, performance, best practices and SEO.
+
+## Deployment error 
+* I noticed that when the site was deployed, the website was completely stripped of the background images that I had originally set and the high scores were not being recorded for a reason I could not find.
+
 ## Deployment
 This website was deployed to Git Hub pages.
 Steps to deploy:
