@@ -111,9 +111,8 @@ If the Queen of diamonds is picked, a green message will show up saying 'Correct
  
 ### Lighthouse Testing
  
-![lighthouse testing](https://user-images.githubusercontent.com/110638513/201007914-f9ff712f-1ec4-4082-b302-488413cf8fc9.PNG)
-* My accessibility would've been better if I had added alt descriptions to my images, however, I was not sure how to do this as my images were inserted in the javascript code.
- 
+![lighthouse testing](https://user-images.githubusercontent.com/110638513/210160775-6f0dc118-f3a9-493c-a7b6-0e4b1b3c55da.PNG)
+* My accessibility is really good in terms of accessibility, performance, best practices and SEO.
 ## Deployment
 This website was deployed to Git Hub pages.
 Steps to deploy:
