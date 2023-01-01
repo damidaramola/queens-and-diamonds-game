@@ -1,7 +1,7 @@
 
 # Queens and Diamonds
  
-Queens and Diamonds is a simple card guessing game in which the player must guess and pick the right card (Queen of Diamonds). The game is suitable for everyone as the player does not need extensive knowledge of how a deck of cards operates to play. When the game begins, each of the 4 cards is shuffled and then faced on its back to the player. If the player guesses the right card, they are awarded points. There are 3 rounds in total. The color theme is mainly a pink undertone to suggest femininity. It is also the color of the Queen of Diamonds card. The other cards are a subtle contrast from the Queen of Diamonds which makes the queen stand out.
+Queens and Diamonds is a simple card guessing game in which the player must guess and pick the right card (Queen of Diamonds). The game is suitable for everyone as the player does not need extensive knowledge of how a deck of cards operates to play. When the game begins, each of the 4 cards is shuffled and then faced on its back to the player. If the player guesses the right card, they are awarded points. There are 3 rounds in total. The color theme is mainly a pink undertone to suggest femininity. It is also the color of the Queen of Diamonds card. The other cards are a subtle contrast from the Queen of Diamonds which makes the Queen stand out.
  
 ![image](https://user-images.githubusercontent.com/110638513/201011587-9bb162bb-d95b-43ac-8e2c-fed0e944721c.png)
 ## Features
